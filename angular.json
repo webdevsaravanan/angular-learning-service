@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "services-deep-dive": {
+    "angular-learning-service": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/services-deep-dive",
+            "outputPath": "dist/angular-learning-service",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "services-deep-dive:build:production"
+              "buildTarget": "angular-learning-service:build:production"
             },
             "development": {
-              "buildTarget": "services-deep-dive:build:development"
+              "buildTarget": "angular-learning-service:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -70,7 +70,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "services-deep-dive:build"
+            "buildTarget": "angular-learning-service:build"
           }
         },
         "test": {
