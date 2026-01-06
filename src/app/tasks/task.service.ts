@@ -13,11 +13,13 @@ export class TaskService {
         }
     }
     addTask(taskData: {title: string; description: string}) {
-        const newTask: Task = {
-            ...taskData,
-            id: Math.random().toString(36).substring(2, 15),
-            status:'OPEN'
-        };
-        this.tasks.update(tasks => [...tasks, newTask]);
+    this.tasks.unshift({
+        id:Math.random().toString(36).substring(2, 15),status:'OPEN',
+title:taskData.title,
+description:taskData.description
+          });
+    this.saveTasks();
+    }
+    private saveTasks(){        localStorage.setItem('tasks',JSON.stringify(this.tasks));
     }
 }
