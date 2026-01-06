@@ -6,24 +6,36 @@
   }"
 >
   <header>
-    <h3>{{ task().title }}</h3>
-    <p (click)="updateTask()">{{ taskStatus() }}</p>
+    <div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-sm-2 text-start">
+      <h4 style="margin-left: -5%;">{{ task().title }}</h4>
+      </div>
+    <div class="col-lg-2 col-sm-2 text-start">
+      <span class="status-badge" (click)="updateTask()">{{ taskStatus() }}</span>
+  </div>
+    <div class="col-lg-7 col-sm-7 text-end">
     @if(task().completedOn != undefined ){
     <span class="text-end" style="font-style: italic;font-size: x-small;">{{ task().completedOn | date: 'medium' }}  </span>
     }
-  </header>
-  <p>{{ task().description }}</p>
-  <form (ngSubmit)="onChangeTaskStatus(task().id, status.value)">
     @if(task().completedOn == undefined ){
-    <p class="text-start" style="font-size:smaller;">
+    <span class="text-end" style="font-style: italic;font-size: x-small;">
       @if(task().createdOn != undefined && task().updatedOn == undefined) {
         {{ task().createdOn | date: 'medium' }}
       }
       @if(task().updatedOn != undefined) {
         {{ task().updatedOn | date: 'medium' }}
       }
-    </p>
+    </span> 
   }
+</div>
+    </div>
+    </div>
+    
+    
+  </header>
+  <p>{{ task().description }}</p>
+  <form (ngSubmit)="onChangeTaskStatus(task().id, status.value)">
     <select name="status" #status>
       <option value="open" [selected]="task().status === 'OPEN'">Open</option>
       <option value="in-progress" [selected]="task().status === 'IN_PROGRESS'">
