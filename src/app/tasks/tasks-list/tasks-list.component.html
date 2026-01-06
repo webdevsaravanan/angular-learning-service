@@ -3,11 +3,12 @@
   <div class="container">
   <div class="row">
     <div class="col text-start">
-      <h2>My Tasks</h2>
+      <h2>My To-Do's</h2>
     </div>
     <div class="col text-center">
       <p>
     <select (change)="onChangeTasksFilter(filter.value)" #filter>
+      <option value="open/in-progress">Open/In-Progress</option>
       <option value="all">All</option>
       <option value="open">Open</option>
       <option value="in-progress">In-Progress</option>
@@ -23,11 +24,12 @@
   </div>
 </div>
 </header>
-
 <ul>
   @for (task of tasks(); track task.id) {
-    <li>
+    @if(selectedFilter().includes(task.status)){
+      <li>
       <app-task-item [task]="task" />
-    </li>
+      </li>
+    }
   }
 </ul>

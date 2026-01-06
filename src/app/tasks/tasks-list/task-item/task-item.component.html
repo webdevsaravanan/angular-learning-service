@@ -21,7 +21,10 @@
       </option>
     </select>
     <p>
-      <button>Change Status</button>
+      <button (click)="onChangeTaskStatus(task().id, status.value)">Change Status</button>
+    </p>
+    <p>
+      <button class="remove" (click)="onRemoveTaskClick(task().id)">Remove</button>
     </p>
   </form>
 </article>

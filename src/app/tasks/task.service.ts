@@ -1,5 +1,5 @@
-import { Injectable, signal } from "@angular/core";
-import { Task } from "./task.model";
+import { Injectable, Signal, signal } from "@angular/core";
+import { Task, TaskStatus } from "./task.model";
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,21 @@ export class TaskService {
 
     this.saveTasks();
     }
+    updateTaskStatus(taskId: string, status: TaskStatus) {
+        this.tasks.update(tasks => {
+            return tasks.map(task => {      
+                if (task.id === taskId) {
+                    return { ...task, status };
+                }                               
+                return task;
+            });
+        });
+        this.saveTasks();
+    }
+    removeTask(taskId: string) {
+        this.tasks.update(tasks => tasks.filter(task => task.id !== taskId));
+        this.saveTasks();
+    }   
     private saveTasks(){
         localStorage.setItem('tasks',JSON.stringify(this.tasks()));
     }

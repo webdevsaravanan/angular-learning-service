@@ -91,3 +91,18 @@ button:hover,
 button:active {
   color: #f8d63c;
 }
+.remove {
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background-color: transparent;
+  color: #f8d63c;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.remove:hover,
+.remove:active {
+  color: #f83306;
+}
