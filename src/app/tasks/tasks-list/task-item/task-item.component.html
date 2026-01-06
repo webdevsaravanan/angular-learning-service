@@ -7,11 +7,24 @@
 >
   <header>
     <h3>{{ task().title }}</h3>
-    <p>{{ taskStatus() }}</p>
+    <p (click)="updateTask()">{{ taskStatus() }}</p>
+    @if(task().completedOn != undefined ){
+    <span class="text-end" style="font-style: italic;font-size: x-small;">{{ task().completedOn | date: 'medium' }}  </span>
+    }
   </header>
   <p>{{ task().description }}</p>
   <form (ngSubmit)="onChangeTaskStatus(task().id, status.value)">
-    <select #status>
+    @if(task().completedOn == undefined ){
+    <p class="text-start" style="font-size:smaller;">
+      @if(task().createdOn != undefined && task().updatedOn == undefined) {
+        {{ task().createdOn | date: 'medium' }}
+      }
+      @if(task().updatedOn != undefined) {
+        {{ task().updatedOn | date: 'medium' }}
+      }
+    </p>
+  }
+    <select name="status" #status>
       <option value="open" [selected]="task().status === 'OPEN'">Open</option>
       <option value="in-progress" [selected]="task().status === 'IN_PROGRESS'">
         In-Progress

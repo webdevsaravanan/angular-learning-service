@@ -1,6 +1,9 @@
 :host {
   display: block;
-  margin: 2rem auto;
+  margin-bottom: 2rem;
+  margin-top: auto;
+  margin-right: auto;
+  margin-left: auto;
   max-width: 40rem;
   border-radius: 4px;
   background-color: #44433f;

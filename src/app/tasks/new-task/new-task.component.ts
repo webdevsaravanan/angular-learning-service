@@ -18,7 +18,7 @@ constructor(private taskService: TaskService) {}
     if(!title || !description){
       return;
     } 
-    this.taskService.addTask({title, description});
+    this.taskService.addTask({title, description, createdOn: new Date()});
     this.formEl()?.nativeElement.reset();
   }
 }

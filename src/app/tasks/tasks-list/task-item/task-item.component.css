@@ -52,7 +52,15 @@ header p {
 .status-done header p {
   background-color: #c484fc;
 }
-
+.status-done header h3 {
+  text-decoration: line-through;
+}
+.status-done header p {
+  text-decoration: none;
+}
+.status-done p {
+  text-decoration: line-through;
+}
 p {
   color: #c3c0b9;
   margin: 0;

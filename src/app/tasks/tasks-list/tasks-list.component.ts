@@ -41,6 +41,6 @@ private modalService = inject(NgbModal);
     this.selectedFilter.update(filters=>[newFilter]);
   }
   open() {
-		const modalRef = this.modalService.open(NewTaskComponent);
+		this.modalService.open(NewTaskComponent );
 	}
 }

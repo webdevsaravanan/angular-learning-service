@@ -1,0 +1,25 @@
+<div class="modal_content">
+  <div class="modal-header">
+    <h5 class="modal-title">Update Task</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close('Close click')"></button>
+  </div>
+		<div class="modal-body">
+<form (ngSubmit)="onUpdateTask(title.value, description.value)" #form>
+  <p>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" #title value="{{ taskDetails?.title }}" />
+  </p>
+  <p>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" #description value="{{ taskDetails?.description }}"></textarea>
+  </p>
+    <div class="container" id="actions">
+    <div class="row">
+    <div class="col text-end">
+    <button>Update Task</button>
+    </div>
+    </div>
+    </div>
+  </form>
+</div>
+    </div>
