@@ -6,7 +6,12 @@ import { Task } from "./task.model";
 })
 export class TaskService {
     tasks=signal<Task[]>([]);
-
+    constructor(){
+        const tasks=localStorage.getItem('tasks');
+        if(tasks){
+            this.tasks=JSON.parse(tasks);
+        }
+    }
     addTask(taskData: {title: string; description: string}) {
         const newTask: Task = {
             ...taskData,
