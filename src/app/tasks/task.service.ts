@@ -9,17 +9,19 @@ export class TaskService {
     constructor(){
         const tasks=localStorage.getItem('tasks');
         if(tasks){
-            this.tasks=JSON.parse(tasks);
+            this.tasks.set(JSON.parse(tasks));
         }
     }
-    addTask(taskData: {title: string; description: string}) {
-    this.tasks.unshift({
+    addTask(taskData: {title: string; description: string}) {       
+    this.tasks.update(tasks => [{
         id:Math.random().toString(36).substring(2, 15),status:'OPEN',
-title:taskData.title,
-description:taskData.description
-          });
+        title:taskData.title,
+        description:taskData.description
+          },...tasks]);
+
     this.saveTasks();
     }
-    private saveTasks(){        localStorage.setItem('tasks',JSON.stringify(this.tasks));
+    private saveTasks(){
+        localStorage.setItem('tasks',JSON.stringify(this.tasks()));
     }
 }

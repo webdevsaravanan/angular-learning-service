@@ -13,6 +13,9 @@ export class NewTaskComponent {
   private formEl = viewChild<ElementRef<HTMLFormElement>>('form');
 constructor(private taskService: TaskService) {}
   onAddTask(title: string, description: string) {
+    if(!title || !description){
+      return;
+    } 
     this.taskService.addTask({title, description});
     this.formEl()?.nativeElement.reset();
   }
