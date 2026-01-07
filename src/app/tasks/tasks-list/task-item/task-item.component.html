@@ -14,7 +14,7 @@
     <div class="col-auto text-start">
       <span class="status-badge" (click)="updateTask()">{{ taskStatus() }}</span>
   </div>
-    <div class="col-5 text-end">
+    <div class="col text-end">
     @if(task().completedOn != undefined ){
     <span style="font-style: italic;font-size: x-small;">{{ task().completedOn | date: 'medium' }}  </span>
     }
