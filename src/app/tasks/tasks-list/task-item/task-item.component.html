@@ -8,18 +8,18 @@
   <header>
     <div class="container">
   <div class="row">
-    <div class="col-4 text-start">
-      <h4 style="margin-left: -5%;">{{ task().title }}</h4>
+    <div class="col-auto text-start">
+      <h4 class='mb-0'>{{ task().title }}</h4>
       </div>
-    <div class="col-3 text-start">
+    <div class="col-auto text-start">
       <span class="status-badge" (click)="updateTask()">{{ taskStatus() }}</span>
   </div>
     <div class="col-5 text-end">
     @if(task().completedOn != undefined ){
-    <span class="text-end" style="font-style: italic;font-size: x-small;">{{ task().completedOn | date: 'medium' }}  </span>
+    <span style="font-style: italic;font-size: x-small;">{{ task().completedOn | date: 'medium' }}  </span>
     }
     @if(task().completedOn == undefined ){
-    <span class="text-end" style="font-style: italic;font-size: x-small;">
+    <span style="font-style: italic;font-size: x-small;">
       @if(task().createdOn != undefined && task().updatedOn == undefined) {
         {{ task().createdOn | date: 'medium' }}
       }
