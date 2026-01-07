@@ -7,14 +7,12 @@
 >
   <header>
     <div class="container">
-  <div class="row">
-    <div class="col-auto text-start">
+  <div class="d-flex align-items-center w-100">
+    <div class="d-flex align-items-center gap-2">
       <h4 class='mb-0'>{{ task().title }}</h4>
-      </div>
-    <div class="col-auto text-start">
-      <span class="status-badge" (click)="updateTask()">{{ taskStatus() }}</span>
+<span class="status-badge" (click)="updateTask()">{{ taskStatus() }}</span>
   </div>
-    <div class="col text-end">
+    <div class="ms-auto text-end">
     @if(task().completedOn != undefined ){
     <span style="font-style: italic;font-size: x-small;">{{ task().completedOn | date: 'medium' }}  </span>
     }
