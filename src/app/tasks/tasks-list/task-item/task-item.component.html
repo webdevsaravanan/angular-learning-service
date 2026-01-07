@@ -13,6 +13,13 @@
 <span class="status-badge" (click)="updateTask()">{{ taskStatus() }}</span>
   </div>
     <div class="ms-auto text-end">
+    <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="onRemoveTaskClick(task().id)"></button>
+</div>
+    </div>
+    </div> 
+  </header>
+  <p>{{ task().description }}</p>
+  <p>
     @if(task().completedOn != undefined ){
     <span style="font-style: italic;font-size: x-small;">{{ task().completedOn | date: 'medium' }}  </span>
     }
@@ -26,28 +33,5 @@
       }
     </span> 
   }
-</div>
-    </div>
-    </div>
-    
-    
-  </header>
-  <p>{{ task().description }}</p>
-  <form (ngSubmit)="onChangeTaskStatus(task().id, status.value)">
-    <select name="status" #status>
-      <option value="open" [selected]="task().status === 'OPEN'">Open</option>
-      <option value="in-progress" [selected]="task().status === 'IN_PROGRESS'">
-        In-Progress
-      </option>
-      <option value="done" [selected]="task().status === 'DONE'">
-        Completed
-      </option>
-    </select>
-    <p>
-      <button (click)="onChangeTaskStatus(task().id, status.value)">Change Status</button>
-    </p>
-    <p>
-      <button class="remove" (click)="onRemoveTaskClick(task().id)">Remove</button>
-    </p>
-  </form>
+  </p>
 </article>

@@ -50,3 +50,12 @@ button:active {
   background-color: #2c2a21;
   color: #f2e090;
 }
+select {
+  font: inherit;
+  padding: 0.15rem;
+  border: none;
+  background-color: #575754;
+  color: #fefefe;
+  border-radius: 0.25rem;
+  font-size: 1.0rem;
+}

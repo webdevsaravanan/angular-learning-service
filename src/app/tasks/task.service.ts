@@ -54,11 +54,16 @@ export class TaskService {
         this.tasks.update(tasks => tasks.filter(task => task.id !== taskId));
         this.saveTasks();
     }   
-    updateTask(taskData: {taskId: string; title: string; description: string, updatedOn: Date}) {       
+    updateTask(taskData: {taskId: string; title: string; description: string,status: TaskStatus}) {       
         this.tasks.update(tasks => {
             return tasks.map(task => {
                 if (task.id === taskData.taskId) {
-                    return { ...task, title: taskData.title, description: taskData.description, updatedOn: taskData.updatedOn };
+                    if(taskData.status==='DONE'){
+                    return { ...task, title: taskData.title, description: taskData.description,status: taskData.status, completedOn: new Date() };
+                    }
+                    if(taskData.status==='OPEN' || taskData.status==='IN_PROGRESS'){
+                        return { ...task, title: taskData.title, description: taskData.description,status: taskData.status, updatedOn: new Date(), completedOn: undefined,createdOn: undefined };
+                    }
                 }
                 return task;
             });
