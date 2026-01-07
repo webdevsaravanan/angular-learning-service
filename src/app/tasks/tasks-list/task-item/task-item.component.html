@@ -14,10 +14,10 @@
   </div>
     <div class="ms-auto text-end">
     @if(task().completedOn != undefined ){
-    <span class="me-1">📅</span><span style="font-style: italic;font-size: x-small;">{{ task().completedOn | date: 'medium' }}  </span>
+    <span style="font-style: italic;font-size: x-small;">{{ task().completedOn | date: 'medium' }}  </span>
     }
     @if(task().completedOn == undefined ){
-    <span class="me-1">📅</span><span style="font-style: italic;font-size: x-small;">
+    <span style="font-style: italic;font-size: x-small;">
       @if(task().createdOn != undefined && task().updatedOn == undefined) {
         {{ task().createdOn | date: 'medium' }}
       }
