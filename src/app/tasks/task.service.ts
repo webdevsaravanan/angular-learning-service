@@ -2,7 +2,7 @@ import { Injectable, Signal, signal } from "@angular/core";
 import { Task, TaskStatus } from "./task.model";
 
 @Injectable({
-  providedIn: 'root'
+   providedIn: 'root'
 })
 export class TaskService {
     tasks=signal<Task[]>([]);

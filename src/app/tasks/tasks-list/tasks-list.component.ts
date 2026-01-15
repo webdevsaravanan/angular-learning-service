@@ -13,13 +13,13 @@ import { NewTaskComponent } from '../new-task/new-task.component';
 export class TasksListComponent {
   selectedFilter = signal<string[]>(['OPEN','IN_PROGRESS']);
   private taskService=inject(TaskService);
+  private modalService = inject(NgbModal);
   tasks = this.taskService.tasks;
-private modalService = inject(NgbModal);
   onChangeTasksFilter(newFilter: string) {
     if(newFilter==='all'){
       this.selectedFilter.update(filters=>['OPEN','IN_PROGRESS','DONE']);
       return;
-    }
+    }  
     if(newFilter==='open/in-progress'){
       this.selectedFilter.update(filters=>['OPEN','IN_PROGRESS']);
       return;
